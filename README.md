@@ -20,4 +20,4 @@ Wire.read()
 - Quetzalcoatl. [acá](./https://quetzalcoatl.fciencias.unam.mx/taller-de-robotica/index.php/recursos-para-organizadores/raspberrypi-os-para-el-taller/)
 - Repositorio Base, que controla con un joystick a un robot en rviz. [acá](./https://github.com/veroarriola/viz_package_cpp/tree/main/src)
 - Repositorio de paquito zero, utiliza i2c. [acá](./https://github.com/veroarriola/viz_package_cpp/tree/main/src)
-- 
+- Repositorio EscuelaPC>Paquito. Es el repo que tiene la raspberry de paquito. [acá](./https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
