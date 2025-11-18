@@ -17,8 +17,8 @@ Wire.available()
 Wire.read()
 ```
 ## Ligas Importantes
-- Quetzalcoatl. [acá](./https://quetzalcoatl.fciencias.unam.mx/taller-de-robotica/index.php/recursos-para-organizadores/raspberrypi-os-para-el-taller/)
-- Repositorio Base, que controla con un joystick a un robot en rviz. [acá](./https://github.com/veroarriola/viz_package_cpp/tree/main/src)
-- Repositorio de paquito zero, utiliza i2c. [acá](./https://github.com/veroarriola/viz_package_cpp/tree/main/src)
-- Repositorio EscuelaPC>Paquito. Es el repo que tiene la raspberry de paquito. [acá](./https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
-- Repositorio taller-de-robotica>Paquito>i2c. Es con el que probamos el protocolo i2c. [acá](./https://github.com/taller-de-robotica/paquito/tree/main/i2c)
+- Quetzalcoatl. [acá](https://quetzalcoatl.fciencias.unam.mx/taller-de-robotica/index.php/recursos-para-organizadores/raspberrypi-os-para-el-taller/)
+- Repositorio Base, que controla con un joystick a un robot en rviz. [acá](https://github.com/veroarriola/viz_package_cpp/tree/main/src)
+- Repositorio de paquito zero, utiliza i2c. [acá](https://github.com/veroarriola/viz_package_cpp/tree/main/src)
+- Repositorio EscuelaPC>Paquito. Es el repo que tiene la raspberry de paquito. [acá](https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
+- Repositorio taller-de-robotica>Paquito>i2c. Es con el que probamos el protocolo i2c. [acá](https://github.com/taller-de-robotica/paquito/tree/main/i2c)
