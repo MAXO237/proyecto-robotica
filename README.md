@@ -22,3 +22,6 @@ Wire.read()
 - Repositorio de paquito zero, utiliza i2c. [acá](https://github.com/veroarriola/viz_package_cpp/tree/main/src)
 - Repositorio EscuelaPC>Paquito. Es el repo que tiene la raspberry de paquito. [acá](https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
 - Repositorio taller-de-robotica>Paquito>i2c. Es con el que probamos el protocolo i2c. [acá](https://github.com/taller-de-robotica/paquito/tree/main/i2c)
+
+## Ligas de Aprendizaje
+- [https://core-electronics.com.au/courses/arduino-workshop-for-beginners/](https://core-electronics.com.au/courses/arduino-workshop-for-beginners/)
