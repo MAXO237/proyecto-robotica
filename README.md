@@ -23,5 +23,11 @@ Wire.read()
 - Repositorio EscuelaPC>Paquito. Es el repo que tiene la raspberry de paquito. [acá](https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
 - Repositorio taller-de-robotica>Paquito>i2c. Es con el que probamos el protocolo i2c. [acá](https://github.com/taller-de-robotica/paquito/tree/main/i2c)
 
+## Archivos con los que probamos el protocolo i2c:
+- Archivo de python i2ctest.py, va en la raspberry de paquito. taller-de-robotica/paquito/i2c
+	[https://github.com/taller-de-robotica/paquito/tree/main/i2c](https://github.com/taller-de-robotica/paquito/tree/main/i2c)
+- Archivo sketch_i2c_test.ino que cargamos con la laptop al arduino de paquito. taller-de-robotica/Escuela-pc/Paquito
+	[https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito](https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
+
 ## Ligas de Aprendizaje
 - [https://core-electronics.com.au/courses/arduino-workshop-for-beginners/](https://core-electronics.com.au/courses/arduino-workshop-for-beginners/)
