@@ -1,33 +1,19 @@
-# proyecto-robotica
-## Ideas
-Para la raspberry, se utiliza la biblioteca smbus2. Escpecíficamente se utiliza el método
-```python
-# para enviar datos:
-write_i2c_block_data(i2c_addr, register, data, force=None)
-```
-La documentación de este método está [acá](https://smbus2.readthedocs.io/en/latest/)
+para probar los nodos:
 
-Para el arduino, se utiliza la biblioteca #include <Wire.h>. Específicamente se utiliza el método
-```cpp
-Wire.begin(SLAVE_ADDRESS);
-Wire.onReceive(receiveEvent);
-Wire.onRequest(requestEvent);
-Wire.available()
-//Para recibir los datos:
-Wire.read()
-```
-## Ligas Importantes
-- Quetzalcoatl. [acá](https://quetzalcoatl.fciencias.unam.mx/taller-de-robotica/index.php/recursos-para-organizadores/raspberrypi-os-para-el-taller/)
-- Repositorio Base, que controla con un joystick a un robot en rviz. [acá](https://github.com/veroarriola/viz_package_cpp/tree/main/src)
-- Repositorio de paquito zero, utiliza i2c. [acá](https://github.com/veroarriola/viz_package_cpp/tree/main/src)
-- Repositorio EscuelaPC>Paquito. Es el repo que tiene la raspberry de paquito. [acá](https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
-- Repositorio taller-de-robotica>Paquito>i2c. Es con el que probamos el protocolo i2c. [acá](https://github.com/taller-de-robotica/paquito/tree/main/i2c)
+	terminal 1:
+		source /opt/ros/jazzy/setup.bash
+		colcon build --packages-select viz_package_cpp2
+		source install/setup.bash
+		ros2 run viz_package_cpp2 wheel_subscriber
+		
+	terminal 2:
+		source /opt/ros/jazzy/setup.bash
+		source install/setup.bash
+		ros2 run viz_package_cpp wheel_publisher
 
-## Archivos con los que probamos el protocolo i2c:
-- Archivo de python i2ctest.py, va en la raspberry de paquito. taller-de-robotica/paquito/i2c
-	[https://github.com/taller-de-robotica/paquito/tree/main/i2c](https://github.com/taller-de-robotica/paquito/tree/main/i2c)
-- Archivo sketch_i2c_test.ino que cargamos con la laptop al arduino de paquito. taller-de-robotica/Escuela-pc/Paquito
-	[https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito](https://github.com/taller-de-robotica/Escuela-pc/tree/main/Paquito)
+	terminal 3:
+		source /opt/ros/jazzy/setup.bash
+		source install/setup.bash
+		ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
-## Ligas de Aprendizaje
-- [https://core-electronics.com.au/courses/arduino-workshop-for-beginners/](https://core-electronics.com.au/courses/arduino-workshop-for-beginners/)
+a la altura donde está el src, build, intall, log
