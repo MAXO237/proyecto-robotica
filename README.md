@@ -64,10 +64,10 @@ def write_i2c_block_data(self, i2c_addr, register, data, force=None):
   "It is possible to write 32 bytes at the time, but I have found that error-prone. Write less and add a delay in between if you run into trouble."
   ```python
   from smbus2 import SMBus
-
-with SMBus(1) as bus:
+  	
+	with SMBus(1) as bus:
     # Write a block of 8 bytes to address 80 from offset 0
-    data = [1, 2, 3, 4, 5, 6, 7, 8]
-    bus.write_i2c_block_data(80, 0, data)
-```
+    	data = [1, 2, 3, 4, 5, 6, 7, 8]
+    	bus.write_i2c_block_data(80, 0, data)
+	```
 
