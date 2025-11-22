@@ -72,4 +72,7 @@ def write_i2c_block_data(self, i2c_addr, register, data, force=None):
 	```
 - Código Fuente de smbus2: [https://github.com/kplindegaard/smbus2/tree/master](https://github.com/kplindegaard/smbus2/tree/master)
 - Documentación bonita y corta de smbus2: [https://smbus2.readthedocs.io/en/latest/#](https://smbus2.readthedocs.io/en/latest/#)
+- Duda resuelta de por qué la función de python `write_i2c_block_data` puede recibir una lista de enteros de python como datos (cuanto debería recibir una lista de bytes). Lo que pasa es que python no tiene un tipo para bytes; el código fuente donde está `write_i2c_block_data` importa `from ctypes import c_uint8`; `c_uint8` toma un número entero de python, y si éste número está en el rango 0-255, entonces hace un tipo `uint8` de C (de 8 bits, un byte) con el valor del entero de python. Además, del lado del arduino, en C++, un char es un byte (8 bits), aunque esto sólo pasa en tipos char unsigned, y arduino tiene en C++ el tipo char unsigned (sin signo).[https://chatgpt.com/share/692120e7-f778-8001-91ad-21d72fb822e8](https://chatgpt.com/share/692120e7-f778-8001-91ad-21d72fb822e8)
+- Un página con el código fuente de smbus2 de python: [https://roboglia.readthedocs.io/en/latest/_modules/smbus2/smbus2.html](https://roboglia.readthedocs.io/en/latest/_modules/smbus2/smbus2.html)
+  
 
