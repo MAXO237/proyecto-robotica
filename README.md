@@ -70,5 +70,6 @@ def write_i2c_block_data(self, i2c_addr, register, data, force=None):
     	data = [1, 2, 3, 4, 5, 6, 7, 8]
     	bus.write_i2c_block_data(80, 0, data)
 	```
-- Documentación general de smbus2: [https://github.com/kplindegaard/smbus2/tree/master](https://github.com/kplindegaard/smbus2/tree/master)
+- Código Fuente de smbus2: [https://github.com/kplindegaard/smbus2/tree/master](https://github.com/kplindegaard/smbus2/tree/master)
+- Documentación bonita y corta de smbus2: [https://smbus2.readthedocs.io/en/latest/#](https://smbus2.readthedocs.io/en/latest/#)
 
