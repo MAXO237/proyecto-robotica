@@ -31,3 +31,33 @@ Wire.read()
 
 ## Ligas de Aprendizaje
 - [https://core-electronics.com.au/courses/arduino-workshop-for-beginners/](https://core-electronics.com.au/courses/arduino-workshop-for-beginners/)
+
+## Otros
+- Código fuente de la función `write_i2c_block_data`: [https://github.com/kplindegaard/smbus2/blob/master/smbus2/smbus2.py](https://github.com/kplindegaard/smbus2/blob/master/smbus2/smbus2.py)
+```python
+def write_i2c_block_data(self, i2c_addr, register, data, force=None):
+        """
+        Write a block of byte data to a given register.
+
+        :param i2c_addr: i2c address
+        :type i2c_addr: int
+        :param register: Start register
+        :type register: int
+        :param data: List of bytes
+        :type data: list
+        :param force: Use slave address even when driver is already using it.
+        :type force: bool
+        :rtype: None
+        """
+        length = len(data)
+        if length > I2C_SMBUS_BLOCK_MAX:
+            raise ValueError("Data length cannot exceed %d bytes" % I2C_SMBUS_BLOCK_MAX)
+        self._set_address(i2c_addr, force=force)
+        msg = i2c_smbus_ioctl_data.create(
+            read_write=I2C_SMBUS_WRITE, command=register, size=I2C_SMBUS_I2C_BLOCK_DATA
+        )
+        msg.data.contents.block[0] = length
+        msg.data.contents.block[1:length + 1] = data
+        ioctl(self.fd, I2C_SMBUS, msg)
+```
+
