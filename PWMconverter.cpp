@@ -13,6 +13,17 @@ class PWMConverter : public rclcpp::Node
 public:
     PWMConverter() : Node("pwm_converter")
     {
+        // -------------- INICIALIZAR I2C --------------------
+        const char *busName = "/dev/i2c-1";
+        file_i2c = open(busName, O_RDWR);
+        if (file_i2c < 0) {
+            RCLCPP_ERROR(this->get_logger(), "No se pudo abrir el bus I2C");
+        }
+
+        if (ioctl(file_i2c, I2C_SLAVE, 0x08) < 0) {
+            RCLCPP_ERROR(this->get_logger(), "No se pudo configurar el esclavo I2C");
+        }
+
        // 1. Suscriptor: Recibe las velocidades angulares de las ruedas
         _vel_subscription = this->create_subscription<std_msgs::msg::Float64MultiArray>(
             "wheel_velocities", 10,
@@ -22,6 +33,20 @@ public:
     }
 
 private:
+
+    void enviar_4_pwm(int p0, int p1, int p2, int p3) {
+        uint8_t buffer[4];
+        buffer[0] = p0;  
+        buffer[1] = p1;
+        buffer[2] = p2;
+        buffer[3] = p3;
+
+        write(file_i2c, buffer, 4);
+    }
+
+
+
+
      // Función de callback que se ejecuta al recibir un mensaje de velocidad.
     void velocity_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
     {
@@ -55,8 +80,17 @@ private:
         RCLCPP_INFO(this->get_logger(),
             "PWMs publicados: FL=%d, RL=%d, FR=%d, RR=%d",
             pwm_msg->data[0], pwm_msg->data[1], pwm_msg->data[2], pwm_msg->data[3]);
+
+
+        enviar_4_pwm(
+            pwm_msg->data[0],
+            pwm_msg->data[1],
+            pwm_msg->data[2],
+            pwm_msg->data[3]
+        );
     }
 
+    int file_i2c;  
     rclcpp::Subscription<std_msgs::msg::Float64MultiArray>::SharedPtr _vel_subscription;
 };
 
